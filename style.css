@@ -1,0 +1,32 @@
+.sidebar{
+    height:100%;
+    width:0;
+    position:fixed;
+    z-index:1;
+    top:0;
+    left:0;
+    overflow-x:hidden;
+    transition:0.5s;
+    padding-top:60px;
+    cursor:pointer;
+}
+.sidebar a{
+    text-decoration:none;
+    display:block;
+    padding:8px;
+}
+.sidebar .closebt{
+    position:absolute;
+    margin-left:50px;
+    top:50px;
+    transition: 0.5s;
+}
+.sidebar a:hover{
+    color:red;
+}
+.door{
+    cursor:pointer;
+}
+.tap{
+    transition: margin-left 0.5s;
+}
