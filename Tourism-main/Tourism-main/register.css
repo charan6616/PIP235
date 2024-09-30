@@ -1,0 +1,31 @@
+body{
+    font-family:"Montserrat", sans-serif;
+    background-color:hsl(0, 0%, 25%);
+    color:bisque;
+}
+.outdiv{
+    display:flex;
+    justify-content: center;
+}
+.indiv{
+    width:fit-content;
+    padding:20px;
+    background-color:hsl(197, 100%, 36%);
+    border-radius: 20px;
+}
+input{
+    height:20px;
+    border-radius: 10px;
+    padding:5px;
+}
+button{
+    padding:10px;
+    border-radius:15px;
+    width:10vw;
+}
+button:hover{
+    background-color: rgb(122, 217, 122);
+}
+table{
+    text-align: left;
+}
