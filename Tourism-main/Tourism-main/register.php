@@ -10,5 +10,9 @@
         if($password!=$repassword){
             echo "error";
         }
+        else{
+            echo "done";
+        }
     }
+$conn->close();
 ?>
