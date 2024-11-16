@@ -1,0 +1,41 @@
+.navbar{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    background-color:aquamarine;
+}
+.navbar_left{
+    padding-left:20px;
+}
+.navbar_right{
+    padding-right:20px;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+}
+a{
+    padding:10px;
+}
+.homepage{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    flex-direction:row;
+    height:80vh;
+    border:1px solid black;
+}
+.home_left{
+    width:50vw;
+}
+.home_right{
+    width:50vw;
+}
+body{
+    background-color:black;
+    color:white;
+}
+.service{
+    padding:20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+}
