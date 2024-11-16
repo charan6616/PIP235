@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incredible India</title>
+    <link rel="stylesheet" href="finalyear.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo animate__animated animate__fadeIn">Incredible India</div>
+        <nav>
+            <a href="#" class="nav-link animate__animated animate__fadeIn">Home</a>
+            <a href="#" class="nav-link animate__animated animate__fadeIn">Reviews</a>
+            <a href="#" class="nav-link animate__animated animate__fadeIn">Gallery</a>
+            <a href="#" class="nav-link animate__animated animate__fadeIn">About</a>
+        </nav>
+        <div class="search-bar animate__animated animate__fadeIn">
+            <input type="text" placeholder="Search destinations" >
+            <button>Search</button>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="animate__animated animate__fadeInDown">Popular Indian Destinations</h1>
+        <div class="destinations" id="destinationsContainer"></div>
+        <button class="show-more-btn animate__animated animate__fadeInUp" id="showMoreBtn">Show More</button>
+
+        <h2 class="animate__animated animate__fadeInDown">What Our Customers Say</h2>
+        <div class="reviews" id="reviewsContainer"></div>
+
+        <h2 class="animate__animated animate__fadeInDown">Gallery</h2>
+        <div class="gallery" id="galleryContainer"></div>
+    </main>
+
+
+
+
+
+    <!--Destination Booking-->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <img id="modalImage" src="" alt="Destination" class="modal-image">
+            <p id="modalHistory"></p>
+            <div class="tab-buttons">
+                <button class="tab-button active" data-tab="hotels">Hotels</button>
+                <button class="tab-button" data-tab="restaurants">Restaurants</button>
+                <button class="tab-button" data-tab="cabs">Cabs</button>
+            </div>
+            <div id="hotelsTab" class="tab-content active">
+                <h3>Nearby Hotels</h3>
+                <div class="options-list" id="hotelsList"></div>
+            </div>
+            <div id="restaurantsTab" class="tab-content">
+                <h3>Popular Restaurants</h3>
+                <div class="options-list" id="restaurantsList"></div>
+            </div>
+            <div id="cabsTab" class="tab-content">
+                <h3>Available Cabs</h3>
+                <div class="options-list" id="cabsList"></div>
+            </div>
+            <!-- Add this new section -->
+            <div id="bookDestinationSection" class="book-destination-section">
+                <h3>Book Destination</h3>
+                <p>Price: <span id="destinationPackagePrice"></span></p>
+                <button id="bookDestinationBtn" class="book-destination-btn">Book Destination Package</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <img id="modalImage" src="ellora-caves.jpg" alt="Destination" class="modal-image">
+            <p id="modalHistory"></p>
+            <div class="tab-buttons">
+                <button class="tab-button active" data-tab="hotels">Hotels</button>
+                <button class="tab-button" data-tab="restaurants">Restaurants</button>
+                <button class="tab-button" data-tab="cabs">Cabs</button>
+            </div>
+            <div id="hotelsTab" class="tab-content active">
+                <h3>Nearby Hotels</h3>
+                <div class="options-list" id="hotelsList"></div>
+            </div>
+            <div id="restaurantsTab" class="tab-content">
+                <h3>Popular Restaurants</h3>
+                <div class="options-list" id="restaurantsList"></div>
+            </div>
+            <div id="cabsTab" class="tab-content">
+                <h3>Available Cabs</h3>
+                <div class="options-list" id="cabsList"></div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Hotel Booking Modal -->
+    <div id="hotelBookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Hotel Booking</h2>
+            <p>You are booking: <span id="hotelName"></span></p>
+            <p>Price: <span id="hotelPrice"></span></p>
+            <form id="hotelBookingForm">
+                <div class="form-group">
+                    <label for="userName">Name:</label>
+                    <input type="text" id="userName" name="userName" required>
+                </div>
+                <div class="form-group">
+                    <label for="mobileNumber">Mobile Number:</label>
+                    <input type="tel" id="mobileNumber" name="mobileNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookingDate">Check-in Date:</label>
+                    <input type="date" id="bookingDate" name="bookingDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="numberOfPersons">Number of Persons:</label>
+                    <input type="number" id="numberOfPersons" name="numberOfPersons" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="nights">Number of Nights:</label>
+                    <input type="number" id="nights" name="nights" min="1" required>
+                </div>
+                <button type="submit" class="pay-btn">Pay Now</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Restaurant Booking Modal -->
+    <div id="restaurantBookingModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Restaurant Table Booking</h2>
+          <p>You are booking a table at: <span id="restaurantName"></span></p>
+          <p><span id="restaurantPrice"></span></p>
+          <form id="restaurantBookingForm">
+            <div class="form-group">
+              <label for="restaurantUserName">Name:</label>
+              <input type="text" id="restaurantUserName" name="userName" required>
+            </div>
+            <div class="form-group">
+              <label for="restaurantMobileNumber">Mobile Number:</label>
+              <input type="tel" id="restaurantMobileNumber" name="mobileNumber" required>
+            </div>
+            <div class="form-group">
+              <label for="restaurantBookingDate">Booking Date:</label>
+              <input type="date" id="restaurantBookingDate" name="bookingDate" required>
+            </div>
+            <div class="form-group">
+              <label for="restaurantBookingTime">Booking Time:</label>
+              <input type="time" id="restaurantBookingTime" name="bookingTime" required>
+            </div>
+            <div class="form-group">
+              <label for="restaurantNumberOfPersons">Number of Persons:</label>
+              <input type="number" id="restaurantNumberOfPersons" name="numberOfPersons" min="1" required>
+            </div>
+            <div class="form-group">
+              <label for="restaurantSpecialRequests">Special Requests:</label>
+              <textarea id="restaurantSpecialRequests" name="specialRequests" rows="3"></textarea>
+            </div>
+            <button type="submit" class="pay-btn">Confirm Booking</button>
+          </form>
+        </div>
+      </div>
+
+
+      <!--Reataurnt Payment methods-->
+      <div id="restaurantPaymentModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Payment for Table Reservation</h2>
+          <form id="restaurantPaymentForm">
+            <div class="form-group">
+              <label for="cardNumber">Card Number:</label>
+              <input type="text" id="cardNumber" required>
+            </div>
+            <div class="form-group">
+              <label for="cardName">Name on Card:</label>
+              <input type="text" id="cardName" required>
+            </div>
+            <div class="form-group">
+              <label for="expiryDate">Expiry Date:</label>
+              <input type="text" id="expiryDate" placeholder="MM/YY" required>
+            </div>
+            <div class="form-group">
+              <label for="cvv">CVV:</label>
+              <input type="text" id="cvv" required>
+            </div>
+            <button type="submit" class="pay-btn">Confirm Payment</button>
+          </form>
+        </div>
+      </div>
+      
+      <div id="bookingConfirmationModal" class="modal">
+        <div class="modal-content">
+          <h2>Table Booked Successfully!</h2>
+          <p>Thank you for your reservation.</p>
+          <button id="closeConfirmation" class="btn">Close</button>
+        </div>
+      </div>
+      
+
+    <!-- Cab Booking Modal -->
+    <div id="cabBookingModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Cab Booking</h2>
+          <p>You are booking: <span id="cabName"></span></p>
+          <p>Estimated fare: <span id="cabPrice"></span></p>
+          <form id="cabBookingForm">
+            <div class="form-group">
+              <label for="cabUserName">Name:</label>
+              <input type="text" id="cabUserName" name="userName" required>
+            </div>
+            <div class="form-group">
+              <label for="cabMobileNumber">Mobile Number:</label>
+              <input type="tel" id="cabMobileNumber" name="mobileNumber" required>
+            </div>
+            <div class="form-group">
+              <label for="cabPickupDate">Pickup Date:</label>
+              <input type="date" id="cabPickupDate" name="pickupDate" required>
+            </div>
+            <div class="form-group">
+              <label for="cabPickupTime">Pickup Time:</label>
+              <input type="time" id="cabPickupTime" name="pickupTime" required>
+            </div>
+            <div class="form-group">
+              <label for="cabPickupLocation">Pickup Location:</label>
+              <input type="text" id="cabPickupLocation" name="pickupLocation" required>
+            </div>
+            <div class="form-group">
+              <label for="cabDropLocation">Drop Location:</label>
+              <input type="text" id="cabDropLocation" name="dropLocation" required>
+            </div>
+            <div class="form-group">
+              <label for="cabNumberOfPassengers">Number of Passengers:</label>
+              <input type="number" id="cabNumberOfPassengers" name="numberOfPassengers" min="1" required>
+            </div>
+            <div class="form-group">
+              <label for="cabLuggageInfo">Luggage Information:</label>
+              <textarea id="cabLuggageInfo" name="luggageInfo" rows="2"></textarea>
+            </div>
+            <button type="submit" class="pay-btn">Book Cab</button>
+          </form>
+        </div>
+      </div>
+
+
+      <!--Cab Booking Payment Methods-->
+      <div id="cabPaymentModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Payment for Cab Booking</h2>
+          <form id="cabPaymentForm">
+            <div class="form-group">
+              <label for="cabCardNumber">Card Number:</label>
+              <input type="text" id="cabCardNumber" required>
+            </div>
+            <div class="form-group">
+              <label for="cabCardName">Name on Card:</label>
+              <input type="text" id="cabCardName" required>
+            </div>
+            <div class="form-group">
+              <label for="cabExpiryDate">Expiry Date:</label>
+              <input type="text" id="cabExpiryDate" placeholder="MM/YY" required>
+            </div>
+            <div class="form-group">
+              <label for="cabCvv">CVV:</label>
+              <input type="text" id="cabCvv" required>
+            </div>
+            <button type="submit" class="pay-btn">Confirm Payment</button>
+          </form>
+        </div>
+      </div>
+      
+      <div id="cabBookingConfirmationModal" class="modal">
+        <div class="modal-content">
+          <h2>Cab Booked Successfully!</h2>
+          <p>Thank you for your booking.</p>
+          <button id="closeCabConfirmation" class="btn">Close</button>
+        </div>
+      </div>
+
+    <!--Payment card Details-->
+<div id="paymentModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="paymentModalTitle">Payment</h2>
+        <p id="paymentAmount"></p>
+        <div id="userDetailsForm">
+            <h3>User Details</h3>
+            <form id="paymentUserForm">
+                <div class="form-group">
+                    <label for="paymentUserName">Full Name:</label>
+                    <input type="text" id="paymentUserName" name="paymentUserName" required>
+                </div>
+                <div class="form-group">
+                    <label for="paymentUserEmail">Email:</label>
+                    <input type="email" id="paymentUserEmail" name="paymentUserEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="paymentUserPhone">Phone Number:</label>
+                    <input type="tel" id="paymentUserPhone" name="paymentUserPhone" required>
+                </div>
+                <button type="submit" class="btn">Proceed to Payment</button>
+            </form>
+        </div>
+        <div id="paymentOptions" style="display: none;">
+            <h3>Select Payment Method</h3>
+            <div class="payment-options">
+                <button class="payment-option" data-payment="credit-card">Credit Card</button>
+                <button class="payment-option" data-payment="debit-card">Debit Card</button>
+                <button class="payment-option" data-payment="net-banking">Net Banking</button>
+                <button class="payment-option" data-payment="upi">UPI</button>
+            </div>
+        </div>
+        <div id="cardPaymentForm" style="display: none;">
+            <h3>Enter Card Details</h3>
+            <form id="cardDetailsForm">
+                <div class="form-group">
+                    <label for="cardNumber">Card Number:</label>
+                    <input type="text" id="cardNumber" name="cardNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="cardName">Name on Card:</label>
+                    <input type="text" id="cardName" name="cardName" required>
+                </div>
+                <div class="form-group">
+                    <label for="expiryDate">Expiry Date:</label>
+                    <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" required>
+                </div>
+                <button type="submit" class="btn">Pay Now</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!--Payment Card Details for Destination Package -->
+<div id="destinationPackageModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2 id="packageModalTitle">Book Destination Package</h2>
+    <form id="packagePaymentForm">
+      <div class="form-group">
+        <label for="packageName">Name:</label>
+        <input type="text" id="packageName" required>
+      </div>
+      <div class="form-group">
+        <label for="packageEmail">Email:</label>
+        <input type="email" id="packageEmail" required>
+      </div>
+      <div class="form-group">
+        <label>Payment Method:</label>
+        <div class="payment-options">
+          <label>
+            <input type="radio" name="packagePaymentMethod" value="credit-card" checked> Credit Card
+          </label>
+          <label>
+            <input type="radio" name="packagePaymentMethod" value="debit-card"> Debit Card
+          </label>
+          <label>
+            <input type="radio" name="packagePaymentMethod" value="net-banking"> Net Banking
+          </label>
+          <label>
+            <input type="radio" name="packagePaymentMethod" value="upi"> UPI
+          </label>
+        </div>
+      </div>
+      <div id="packageCardDetails">
+        <div class="form-group">
+          <label for="packageCardNumber">Card Number:</label>
+          <input type="text" id="packageCardNumber" placeholder="1234 5678 9012 3456" required>
+        </div>
+        <div class="form-group">
+          <label for="packageExpiry">Expiry Date:</label>
+          <input type="text" id="packageExpiry" placeholder="MM/YY" required>
+        </div>
+        <div class="form-group">
+          <label for="packageCvv">CVV:</label>
+          <input type="text" id="packageCvv" placeholder="123" required>
+        </div>
+      </div>
+      <div id="packageBankingDetails" style="display: none;">
+        <div class="form-group">
+          <label for="packageBankSelect">Select Bank:</label>
+          <select id="packageBankSelect" required>
+            <option value="">Select a bank</option>
+            <option value="sbi">State Bank of India</option>
+            <option value="hdfc">HDFC Bank</option>
+            <option value="icici">ICICI Bank</option>
+            <option value="axis">Axis Bank</option>
+          </select>
+        </div>
+      </div>
+      <div id="packageUpiDetails" style="display: none;">
+        <div class="form-group">
+          <label for="packageUpiId">UPI ID:</label>
+          <input type="text" id="packageUpiId" placeholder="yourname@upi" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="pay-btn">Pay Now</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="packageConfirmationModal" class="modal">
+  <div class="modal-content">
+    <h2>Package Booking Confirmed!</h2>
+    <p>Thank you for choosing Incredible India</p>
+    <p id="packageConfirmationMessage"></p>
+    <button id="closePackageConfirmation" class="btn">Close</button>
+  </div>
+</div>
+
+
+<!--Footer Section-->
+    <footer class="site-footer">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>About Us</h3>
+            <ul>
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Destinations</h3>
+            <ul>
+              <li><a href="#">Popular Places</a></li>
+              <li><a href="#">Featured Tours</a></li>
+              <li><a href="#">Hidden Gems</a></li>
+              <li><a href="#">Travel Guides</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Support</h3>
+            <ul>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Booking Policy</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Partners</h3>
+            <ul>
+              <li><a href="#">Hotels</a></li>
+              <li><a href="#">Airlines</a></li>
+              <li><a href="#">Car Rentals</a></li>
+              <li><a href="#">Affiliate Program</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Newsletter</h3>
+            <p>Subscribe for travel tips and exclusive deals!</p>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Your email address" required>
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2023 Incredible India. All rights reserved.</p>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </footer>
+
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <script src="finalyear.js"></script>
+</body>
+</html>

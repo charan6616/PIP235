@@ -1,0 +1,955 @@
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideInFromRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap');
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+/* Header styles */
+header {
+    background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+    padding: 1rem;
+    color: white;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.search-bar input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    width: 300px;
+}
+
+.search-bar button {
+    padding: 0.5rem 1rem;
+    border: none;
+    color: #000;
+    border-radius: 0 20px 20px 0;
+    background-image: linear-gradient(135deg, #f77519 10%, #f7791f 100%);
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.search-bar button:hover {
+  background-image: linear-gradient(135deg, #fdfbfb 10%, #ebedee 100%);}
+
+main {
+    padding: 2rem;
+}
+
+
+h1, h2 {
+color: rgb(0, 0, 0);
+  text-align: center;
+  animation: slideInFromLeft 1s ease-out;
+}
+
+.destinations {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.destination {
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.1s, box-shadow 0.1s;
+  animation: fadeIn 1s ease-out;
+}
+
+.destination:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.destination img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.1s;
+}
+
+.destination:hover img {
+  transform: scale(1.05);
+}
+
+.destination-info {
+  padding: 1rem;
+}
+
+.destination-info h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+.price {
+  color: #ff7e5f;
+  font-weight: bold;
+}
+
+.rating {
+  margin-left: 98px;
+  color: #ffd700;
+}
+
+.book-btn {
+  display: block;
+  width: 100%;
+  margin-top:10px;
+  padding: 0.5rem;
+  background: #f47543;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.1s, transform 0.1s;
+}
+
+.book-btn:hover {
+  background: linear-gradient(45deg, #4ECDC4, #FF6B6B);
+  transform: scale(1.05);
+}
+
+.show-more-btn {
+  display: block;
+  width: 200px;
+  margin: 2rem auto;
+  padding: 0.5rem;
+  background:  #f47543;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  
+}
+
+.show-more-btn:hover {
+  background: linear-gradient(45deg, #4ECDC4, #FF6B6B);
+  scale:1.05;
+}
+
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.review {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  animation: fadeIn 1s ease-out;
+}
+
+.review:hover {
+  transform: translateY(-5px);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  cursor: pointer;
+  animation: fadeIn 1s ease-out;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1470px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+  min-width: 200px;
+}
+
+.footer-section h3 {
+  margin-bottom: 1rem;
+}
+
+.footer-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #fff;
+}
+
+.newsletter input {
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: 0.5rem;
+}
+
+.newsletter button {
+  padding: 0.5rem 1rem;
+  background: linear-gradient(45deg, #4ECDC4, #FF6B6B);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.newsletter button:hover {
+  background: linear-gradient(45deg, #4ECDC4, #FF6B6B);
+  transform: scale(1.05);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  animation: slideInFromTop 0.5s ease-out;
+}
+
+@keyframes slideInFromTop {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close:hover {
+  color: #000;
+}
+
+.modal-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.tab-button {
+  padding: 0.5rem 1rem;
+  background-color: #f0f0f0;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform  0.3s;
+}
+
+.tab-button:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+.tab-button.active {
+  background-color: #ff7e5f;
+  color: white;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.options-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.option-item {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 4px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.option-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 1.5rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ff7e5f;
+  transform: scale(1.2);
+}
+
+.animate__animated {
+  animation-duration: 0.8s;
+}
+
+
+/* Hotel Booking Modal Styles */
+#hotelBookingModal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+#hotelBookingModal .modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#hotelBookingModal .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#hotelBookingModal .close:hover,
+#hotelBookingModal .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#hotelBookingForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#hotelBookingForm .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+#hotelBookingForm label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#hotelBookingForm input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+#hotelBookingForm .pay-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#hotelBookingForm .pay-btn:hover {
+  background-color: #45a049;
+}
+
+
+/*Footer section*/
+
+
+.site-footer {
+  background: linear-gradient(45deg, #4ECDC4, #FF6B6B);
+  color: #fff;
+  padding: 3rem 0;
+  font-family: Arial, sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footer-section {
+  flex: 1;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  min-width: 200px;
+}
+
+.footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #0a0a0a;
+}
+
+.footer-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #fff;
+}
+
+.newsletter-form {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.newsletter-form input {
+  flex-grow: 1;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 14px 0 0 14px;
+}
+
+.newsletter-form button {
+  padding: 0.5rem 1rem;
+  background-color: #ff7e5f;
+  color: white;
+  border: none;
+  border-radius: 0 14px 14px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.newsletter-form button:hover {
+  background-color: #ff6b4a;
+}
+
+.footer-bottom {
+  border-top: 1px solid #555;
+  padding-top: 1rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ff7e5f;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .footer-section {
+    margin-right: 0;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-icons {
+    margin-top: 1rem;
+  }
+}
+
+
+/*Book Destination*/
+
+.book-destination-section {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.book-destination-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff7e5f;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.book-destination-btn:hover {
+  background-color: #ff6b4a;
+  transform: scale(1.05);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.pay-btn {
+  background-color: #ff7e5f;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.pay-btn:hover {
+  background-color: #ff6b4a;
+}
+
+/*Book Destination Package*/
+/* Add this CSS to your existing styles.css file */
+
+#destinationPackageModal, #packageConfirmationModal {
+display: none;
+position: fixed;
+z-index: 1000;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgba(0,0,0,0.4);
+}
+
+#destinationPackageModal .modal-content, #packageConfirmationModal .modal-content {
+background-color: #fefefe;
+margin: 15% auto;
+padding: 20px;
+border: 1px solid #888;
+width: 80%;
+max-width: 500px;
+}
+
+#destinationPackageModal .close {
+color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+cursor: pointer;
+}
+
+#destinationPackageModal .close:hover,
+#destinationPackageModal .close:focus {
+color: #000;
+text-decoration: none;
+cursor: pointer;
+}
+
+#packagePaymentForm .form-group {
+margin-bottom: 15px;
+}
+
+#packagePaymentForm .form-group label {
+display: block;
+margin-bottom: 5px;
+}
+
+#packagePaymentForm .form-group input,
+#packagePaymentForm .form-group select {
+width: 100%;
+padding: 8px;
+border: 1px solid #ddd;
+border-radius: 4px;
+}
+
+#packagePaymentForm .payment-options {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+}
+
+#packagePaymentForm .payment-options label {
+display: flex;
+align-items: center;
+gap: 5px;
+}
+
+#packagePaymentForm .pay-btn {
+background-color: #4CAF50;
+color: white;
+padding: 10px 15px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-size: 16px;
+}
+
+#packagePaymentForm .pay-btn:hover {
+background-color: #45a049;
+}
+
+#packageConfirmationModal .modal-content {
+text-align: center;
+}
+
+#packageConfirmationModal h2 {
+color: #4CAF50;
+}
+
+#closePackageConfirmation {
+margin-top: 20px;
+padding: 10px 20px;
+background-color: #4CAF50;
+color: white;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-size: 16px;
+}
+
+#closePackageConfirmation:hover {
+background-color: #45a049;
+}
+
+/*Search Destination*/
+.no-results {
+text-align: center;
+font-size: 18px;
+color: #666;
+margin-top: 20px;
+}
+
+
+/*Restaurant Payment Methods*/
+#restaurantPaymentModal .modal-content,
+#bookingConfirmationModal .modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+}
+
+#restaurantPaymentModal .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#restaurantPaymentModal .close:hover,
+#restaurantPaymentModal .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#restaurantPaymentForm .form-group {
+  margin-bottom: 15px;
+}
+
+#restaurantPaymentForm .form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#restaurantPaymentForm .form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+#restaurantPaymentForm .pay-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#restaurantPaymentForm .pay-btn:hover {
+  background-color: #45a049;
+}
+
+#bookingConfirmationModal .modal-content {
+  text-align: center;
+}
+
+#closeConfirmation {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#closeConfirmation:hover {
+  background-color: #45a049;
+}
+
+/*Cab Booking Payment Methods*/
+#cabPaymentModal .modal-content,
+#cabBookingConfirmationModal .modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+}
+
+#cabPaymentModal .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#cabPaymentModal .close:hover,
+#cabPaymentModal .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#cabPaymentForm .form-group {
+  margin-bottom: 15px;
+}
+
+#cabPaymentForm .form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#cabPaymentForm .form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+#cabPaymentForm .pay-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#cabPaymentForm .pay-btn:hover {
+  background-color: #45a049;
+}
+
+#cabBookingConfirmationModal .modal-content {
+  text-align: center;
+}
+
+#closeCabConfirmation {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #45a049;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#closeCabConfirmation:hover {
+  background-color: #45a049;
+}
